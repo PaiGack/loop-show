@@ -10,10 +10,12 @@ MainWindow::MainWindow(QWidget *parent)
     qDebug() << "MainWindow::MainWindow init";
 
     ui->setupUi(this);
+    this->setWindowFlags(Qt::FramelessWindowHint | Qt::Window);
     this->showFullScreen();
 
-    QString m_filepath = "";
-    if (!QFile::exists(m_filepath)) {
+    QString m_filepath = "E:\\Code\\work2024\\01\\web\\video\\b.mp4";
+    if (!QFile::exists(m_filepath))
+    {
         qDebug() << "MainWindow::MainWindow not found file.";
         return;
     }

@@ -11,11 +11,14 @@ VideoWindow::VideoWindow(const QString &filepath, QWidget *parent)
 
     m_label = new QLabel(this);
     m_label->setAlignment(Qt::AlignCenter);
+    m_label->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    m_label->setAttribute(Qt::WA_OpaquePaintEvent);
 
     m_layout = new QVBoxLayout(this);
     m_layout->addWidget(m_label);
     setLayout(m_layout);
 
+    this->setWindowFlags(Qt::FramelessWindowHint | Qt::Window);
     this->showFullScreen();
     this->hide();
 
